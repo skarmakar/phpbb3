@@ -18,7 +18,7 @@ if (!defined('IN_PHPBB'))
 
 /**
 * ucp_register
-* Board registration after getting info from smartgardener
+* Board registration after getting info from rails website
 * @package ucp
 */
 class ucp_sgregister
@@ -43,7 +43,7 @@ class ucp_sgregister
 
 		$error = $cp_data = $cp_error = array();
 
-    // get json data from smartgardener
+    // get json data from rails website
     $json_url = 'http://localhost:3000/users/' . request_var('access_code', '', true) . '/info.json';
     $result = file_get_contents($json_url);
 
