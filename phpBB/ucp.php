@@ -58,13 +58,15 @@ switch ($mode)
 	break;
 
 	case 'register':
-		if ($user->data['is_registered'] || isset($_REQUEST['not_agreed']))
-		{
-			redirect(append_sid("{$phpbb_root_path}index.$phpEx"));
-		}
+    redirect("http://localhost:3000/login?sg_forum=true", false, true);
 
-		$module->load('ucp', 'register');
-		$module->display($user->lang['REGISTER']);
+		/* if ($user->data['is_registered'] || isset($_REQUEST['not_agreed'])) */
+		/* { */
+		/* 	redirect(append_sid("{$phpbb_root_path}index.$phpEx")); */
+		/* } */
+
+		/* $module->load('ucp', 'register'); */
+		/* $module->display($user->lang['REGISTER']); */
 	break;
 
 	case 'confirm':
@@ -72,12 +74,17 @@ switch ($mode)
 	break;
 
 	case 'login':
-		if ($user->data['is_registered'])
-		{
-			redirect(append_sid("{$phpbb_root_path}index.$phpEx"));
-		}
+    redirect("http://localhost:3000/login?sg_forum=true", false, true);
+		/* if ($user->data['is_registered']) */
+		/* { */
+		/* 	redirect(append_sid("{$phpbb_root_path}index.$phpEx")); */
+		/* } */
 
-		login_box(request_var('redirect', "index.$phpEx"));
+		/* login_box(request_var('redirect', "index.$phpEx")); */
+	break;
+
+	case 'sgregister':
+    $module->load('ucp', 'sgregister');
 	break;
 
 	case 'logout':
